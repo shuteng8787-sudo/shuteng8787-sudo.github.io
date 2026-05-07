@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "io.github.shuteng8787sudo.habitstreak",
+      "package_name": "io.github.shuteng8787_sudo.twa",
       "sha256_cert_fingerprints": [
         "1FB53D404CB24EC8EDF5333965E0D6C412D0E930CF39821CE930971AC2A891B1"
       ]
