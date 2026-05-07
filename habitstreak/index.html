@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#059669">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>HabitStreak - Don't Break the Chain</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <div class="header-top">
+                <div class="logo"><span class="logo-icon">&#128293;</span><span class="logo-text">HabitStreak</span></div>
+                <button class="icon-btn" id="btnLang">&#127760;</button>
+            </div>
+        </header>
+        <main>
+            <div id="habitList" class="habit-list"></div>
+            <button class="add-habit-btn" id="btnAddHabit">+ <span data-i18n="add_habit">Add Habit</span></button>
+            <!-- Heatmap -->
+            <div id="heatmapSection" class="heatmap-section" style="display:none;">
+                <h3 data-i18n="your_progress">Your Progress</h3>
+                <div id="heatmapContainer" class="heatmap-container"></div>
+                <div class="heatmap-legend">
+                    <span data-i18n="less">Less</span>
+                    <span class="hm-cell hm-0"></span>
+                    <span class="hm-cell hm-1"></span>
+                    <span class="hm-cell hm-2"></span>
+                    <span class="hm-cell hm-3"></span>
+                    <span class="hm-cell hm-4"></span>
+                    <span data-i18n="more">More</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Add Habit Modal -->
+        <div class="modal-overlay" id="modalAddHabit" style="display:none;">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 data-i18n="new_habit">New Habit</h3>
+                    <button class="close-btn" id="btnCloseAdd">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label data-i18n="habit_name">What habit?</label>
+                        <input type="text" id="inputHabitName" class="form-input" placeholder="e.g. Read 20 pages">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="habit_color">Color</label>
+                        <div class="color-picker" id="colorPicker">
+                            <button class="color-opt selected" data-color="#059669" style="background:#059669"></button>
+                            <button class="color-opt" data-color="#2563EB" style="background:#2563EB"></button>
+                            <button class="color-opt" data-color="#7C3AED" style="background:#7C3AED"></button>
+                            <button class="color-opt" data-color="#DC2626" style="background:#DC2626"></button>
+                            <button class="color-opt" data-color="#EA580C" style="background:#EA580C"></button>
+                            <button class="color-opt" data-color="#0D9488" style="background:#0D9488"></button>
+                            <button class="color-opt" data-color="#CA8A04" style="background:#CA8A04"></button>
+                            <button class="color-opt" data-color="#DB2777" style="background:#DB2777"></button>
+                        </div>
+                    </div>
+                    <button class="primary-btn" id="btnSaveHabit" data-i18n="start">Start!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Language Modal -->
+        <div class="modal-overlay" id="modalLang" style="display:none;">
+            <div class="modal modal-sm">
+                <div class="modal-header">
+                    <h3 data-i18n="language">Language</h3>
+                    <button class="close-btn" id="btnCloseLang">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <button class="lang-btn" data-lang="en">English</button>
+                    <button class="lang-btn" data-lang="zh">&#20013;&#25991;</button>
+                    <button class="lang-btn" data-lang="es">Espa&#241;ol</button>
+                    <button class="lang-btn" data-lang="ja">&#26085;&#26412;&#35486;</button>
+                    <button class="lang-btn" data-lang="de">Deutsch</button>
+                    <button class="lang-btn" data-lang="fr">Fran&#231;ais</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+    if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{})}
+    </script>
+</body>
+</html>
